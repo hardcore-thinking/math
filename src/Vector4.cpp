@@ -70,10 +70,6 @@ Vector4& operator -= (Vector4& lhs, Vector4 const& rhs) {
     return lhs;
 }
 
-float Dot(Vector4 const& lhs, Vector4 const& rhs) {
-    return lhs.x * rhs.x + lhs.y * rhs.y + lhs.z * rhs.z + lhs.w * rhs.w;
-}
-
 Vector4 operator * (Vector4 const& lhs, float const& rhs) {
     return Vector4(
         lhs.x * rhs,
