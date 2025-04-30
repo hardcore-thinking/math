@@ -18,6 +18,8 @@ class Matrix4x4 {
                   float yx, float yy, float yz, float yw,
                   float zx, float zy, float zz, float zw,
                   float wx, float wy, float wz, float ww);
+        Matrix4x4(Vector4 const& xyzw1, Vector4 const& xyzw2, Vector4 const& xyzw3, Vector4 const& xyzw4, bool transpose = false);
+        Matrix4x4(Matrix4x4 const& m) = default;
 
         float& operator [] (size_t index);
         float const& operator [] (size_t index) const;

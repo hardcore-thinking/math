@@ -21,6 +21,20 @@ Vector4::Vector4(float x, float y, float z, float w) {
     this->w = w;
 }
 
+Vector4::Vector4(Vector3 const& xyz, float w) {
+    this->x = xyz.x;
+    this->y = xyz.y;
+    this->z = xyz.z;
+    this->w = w;
+}
+
+Vector4::Vector4(float x, Vector3 const& yzw) {
+    this->x = x;
+    this->y = yzw.x;
+    this->z = yzw.y;
+    this->w = yzw.z;
+}
+
 Vector4& Vector4::operator = (Vector4 const& m) {
     this->x = m.x;
     this->y = m.y;

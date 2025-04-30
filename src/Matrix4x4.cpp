@@ -34,6 +34,24 @@ Matrix4x4::Matrix4x4(float xx, float xy, float xz, float xw,
     };
 }
 
+Matrix4x4::Matrix4x4(Vector4 const& xyzw1, Vector4 const& xyzw2, Vector4 const& xyzw3, Vector4 const& xyzw4, bool transpose) {
+    if (transpose) {
+        _elements = {
+            xyzw1.x, xyzw2.x, xyzw3.x, xyzw4.x,
+            xyzw1.y, xyzw2.y, xyzw3.y, xyzw4.y,
+            xyzw1.z, xyzw2.z, xyzw3.z, xyzw4.z,
+            xyzw1.w, xyzw2.w, xyzw3.w, xyzw4.w
+        };
+    } else {
+        _elements = {
+            xyzw1.x, xyzw1.y, xyzw1.z, xyzw1.w,
+            xyzw2.x, xyzw2.y, xyzw2.z, xyzw2.w,
+            xyzw3.x, xyzw3.y, xyzw3.z, xyzw3.w,
+            xyzw4.x, xyzw4.y, xyzw4.z, xyzw4.w
+        };
+    }
+}
+
 float& Matrix4x4::operator [] (size_t index) {
     assert("Index must be in the bounds of the matrix"
            && index >= 0 && index < 16);
