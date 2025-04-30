@@ -26,6 +26,18 @@ Vector3& Vector3::operator = (Vector3 const& m) {
     return *this;
 }
 
+Vector3::Vector3(Vector2 const& xy, float z) {
+    this->x = xy.x;
+    this->y = xy.y;
+    this->z = z;
+}
+
+Vector3::Vector3(float x, Vector2 const& yz) {
+    this->x = x;
+    this->y = yz.x;
+    this->z = yz.y;
+}
+
 std::ostream& operator << (std::ostream& out, Vector3 const& m) {
     out << std::setprecision(2) << std::fixed << m.x << " " << m.y << " " << m.z;
 
@@ -84,11 +96,7 @@ Vector3& operator *= (Vector3& lhs, float const& rhs) {
 
 Vector3 operator / (Vector3 const& lhs, float const& rhs) {
     float inversedRhs = 1 / rhs;
-    return Vector3(
-        lhs.x * inversedRhs,
-        lhs.y * inversedRhs,
-        lhs.z * inversedRhs
-    );
+    return lhs * inversedRhs;
 }
 
 Vector3& operator /= (Vector3& lhs, float const& rhs) {
@@ -121,8 +129,7 @@ Vector3 Vector3::Normalize(Vector3 const& m) {
 
 Vector3& Vector3::Normalized() {
     float inversedMagnitude = 1 / Magnitude(*this);
-    
-    *this = *this * inversedMagnitude;
+    *this *= inversedMagnitude;
 
     return *this;
 }

@@ -5,6 +5,7 @@
 #include <iomanip>
 #include <cmath>
 
+#include <Vector2.hpp>
 #include <Vector3.hpp>
 
 struct Vector4 {
@@ -12,6 +13,10 @@ struct Vector4 {
         Vector4();
         Vector4(float c);
         Vector4(float x, float y, float z, float w);
+        Vector4(Vector2 const& xy, float z, float w);
+        Vector4(float x, Vector2 const& yz, float w);
+        Vector4(float x, float y, Vector2 const& zw);
+        Vector4(Vector2 const& xy, Vector2 const& zw);
         Vector4(Vector3 const& xyz, float w);
         Vector4(float x, Vector3 const& yzw);
 

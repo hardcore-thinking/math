@@ -5,11 +5,15 @@
 #include <iomanip>
 #include <cmath>
 
+#include <Vector2.hpp>
+
 struct Vector3 {
     public:
         Vector3();
         Vector3(float c);
         Vector3(float x, float y, float z);
+        Vector3(Vector2 const& xy, float z);
+        Vector3(float x, Vector2 const& yz);
         Vector3(Vector3 const& m) = default;
         Vector3(Vector3&& m) = default;
 

@@ -21,6 +21,34 @@ Vector4::Vector4(float x, float y, float z, float w) {
     this->w = w;
 }
 
+Vector4::Vector4(Vector2 const& xy, float z, float w) {
+    this->x = xy.x;
+    this->y = xy.y;
+    this->z = z;
+    this->w = w;
+}
+
+Vector4::Vector4(float x, Vector2 const& yz, float w) {
+    this->x = x;
+    this->y = yz.x;
+    this->z = yz.y;
+    this->w = w;
+}
+
+Vector4::Vector4(float x, float y, Vector2 const& zw) {
+    this->x = x;
+    this->y = y;
+    this->z = zw.x;
+    this->w = zw.y;
+}
+
+Vector4::Vector4(Vector2 const& xy, Vector2 const& zw) {
+    this->x = xy.x;
+    this->y = xy.y;
+    this->z = zw.x;
+    this->w = zw.y;
+}
+
 Vector4::Vector4(Vector3 const& xyz, float w) {
     this->x = xyz.x;
     this->y = xyz.y;
@@ -127,7 +155,7 @@ float Vector4::Magnitude(Vector4 const& m) {
 Vector4 Vector4::Normalize(Vector4 const& m) {
     float inversedMagnitude = 1 / Magnitude(m);
 
-    return Vector4(m) * inversedMagnitude;
+    return m * inversedMagnitude;
 }
 
 Vector4& Vector4::Normalized() {
