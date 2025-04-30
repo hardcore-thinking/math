@@ -34,8 +34,8 @@ Matrix4x4::Matrix4x4(float xx, float xy, float xz, float xw,
     };
 }
 
-Matrix4x4::Matrix4x4(Vector4 const& xyzw1, Vector4 const& xyzw2, Vector4 const& xyzw3, Vector4 const& xyzw4, bool transpose) {
-    if (transpose) {
+Matrix4x4::Matrix4x4(Vector4 const& xyzw1, Vector4 const& xyzw2, Vector4 const& xyzw3, Vector4 const& xyzw4, bool columnMajor) {
+    if (columnMajor) {
         _elements = {
             xyzw1.x, xyzw2.x, xyzw3.x, xyzw4.x,
             xyzw1.y, xyzw2.y, xyzw3.y, xyzw4.y,
